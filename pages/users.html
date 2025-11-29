@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registered Users - Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .container { padding: 30px; }
+        h2 { color: #ff7a00; text-align: center; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: center; }
+        th { background-color: #ff7a00; color: white; }
+        button { padding: 6px 12px; cursor: pointer; border: none; background-color: #ff7a00; color: white; border-radius: 4px; }
+        button:hover { background-color: #e06a00; }
+        input { padding: 6px; width: 80%; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <img src="C:\Users\keerthana\Desktop\canteen_management\logo.png" class="logo">
+    <nav class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="admin-panel.html">Admin Panel</a>
+    </nav>
+</header>
+
+<section class="container">
+    <h2>Registered Users</h2>
+
+    <table id="users-table">
+        <thead>
+            <tr>
+                <th>User ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Users will be dynamically loaded here -->
+        </tbody>
+    </table>
+</section>
+
+<script>
+// Sample users array (replace with backend fetch)
+let users = [
+    {id:1, name:"Pari", email:"pari@example.com", phone:"9876543210"},
+    {id:2, name:"Rahul", email:"rahul@example.com", phone:"9876501234"},
+];
+
+const usersTable = document.getElementById('users-table').querySelector('tbody');
+
+function renderUsers(){
+    usersTable.innerHTML = '';
+    users.forEach(user=>{
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+            <td>${user.id}</td>
+            <td><input type="text" value="${user.name}" id="name-${user.id}"></td>
+            <td><input type="email" value="${user.email}" id="email-${user.id}"></td>
+            <td><input type="text" value="${user.phone}" id="phone-${user.id}"></td>
+            <td>
+                <button onclick="updateUser(${user.id})">Update</button>
+                <button onclick="deleteUser(${user.id})">Delete</button>
+            </td>
+        `;
+        usersTable.appendChild(tr);
+    });
+}
+
+function updateUser(id){
+    const updatedUser = {
+        name: document.getElementById(`name-${id}`).value,
+        email: document.getElementById(`email-${id}`).value,
+        phone: document.getElementById(`phone-${id}`).value
+    };
+    users = users.map(u => u.id === id ? {...u, ...updatedUser} : u);
+    alert('User updated successfully!');
+    renderUsers();
+    // TODO: Send PUT request to backend to update in DB
+}
+
+function deleteUser(id){
+    if(confirm('Are you sure you want to delete this user?')){
+        users = users.filter(u=>u.id!==id);
+        renderUsers();
+        // TODO: Send DELETE request to backend to remove from DB
+    }
+}
+
+// Initial render
+renderUsers();
+</script>
+
+</body>
+</html>

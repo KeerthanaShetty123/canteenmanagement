@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Canteen Management System</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+
+    <style>
+        /* Date & Time Box */
+        .datetime-box {
+            text-align: center;
+            padding: 10px 18px;
+            background: #fff3e0;
+            font-size: 18px;
+            font-weight: 600;
+            color: #ff7a00;
+            width: fit-content;
+            margin: 10px auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        /* QR Payment Box */
+        .payment-section {
+            margin: 40px auto;
+            text-align: center;
+            background: #fff;
+            width: 330px;
+            padding: 20px;
+            border-radius: 14px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .payment-section img {
+            width: 230px;
+            border-radius: 10px;
+            margin-bottom: 12px;
+        }
+
+        .payment-section h3 {
+            color: #ff7a00;
+            margin-bottom: 10px;
+        }
+
+        .payment-section p {
+            font-size: 15px;
+            margin: 6px 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <img src="C:\Users\keerthana\Desktop\canteen_management\logo.png" class="logo" alt="Logo" />
+        <nav class="navbar">
+            <a href="index.html">Home</a>
+            <a href="pages/cart.html">Cart</a>
+            <a href="pages/login.html">Login</a>
+            <a href="pages/admin.html">Admin</a>
+        </nav>
+    </header>
+
+    <!-- DATE & TIME -->
+    <div class="datetime-box">
+        <span id="liveDateTime">Loading...</span>
+    </div>
+
+    <!-- SLIDER -->
+    <div class="slider">
+        <div class="slides">
+            <img src="C:\Users\keerthana\Desktop\canteen_management\slide 4.jpg" alt="Slide 1" />
+            <img src="C:\Users\keerthana\Desktop\canteen_management\slide1.jpg" alt="Slide 2" />
+            <img src="C:\Users\keerthana\Desktop\canteen_management\slide3.jpeg" alt="Slide 3" />
+        </div>
+    </div>
+
+    <!-- MENU SECTION -->
+    <section class="menu">
+        <h2 class="section-title">Our Menu</h2>
+
+        <div class="grid">
+
+            <!-- 10 menu items -->
+            <div class="card">
+                <img src="C:\Users\keerthana\Desktop\canteen_management\Veg Sandwich.jpg" alt="Food 1" />
+                <h3>Veg Sandwich</h3>
+                <a href="pages/cart.html" class="btn small">Add</a>
+            </div>
+
+            <!-- Example card -->
+<div class="card">
+  <img src="C:\Users\keerthana\Desktop\canteen_management\idli.jpg" alt="Food 1" />
+  <h3>Idli</h3>
+  <!-- use button or anchor with href="javascript:void(0)" to avoid immediate navigation -->
+  <a href="javascript:void(0)" class="btn small" onclick="addToCart('Food Item 1', 50, 'images/food1.png')">Add</a>
+</div>
+
+            <!-- Example card -->
+<div class="card">
+  <img src="C:\Users\keerthana\Desktop\canteen_management\Masala Dosa.webp" alt="Food 1" />
+  <h3>Masala Dosa</h3>
+  <!-- use button or anchor with href="javascript:void(0)" to avoid immediate navigation -->
+  <a href="javascript:void(0)" class="btn small" onclick="addToCart('Food Item 1', 50, 'images/food1.png')">Add</a>
+</div>
+
+            <!-- Example card -->
+<div class="card">
+  <img src="C:\Users\keerthana\Desktop\canteen_management\Poori & Potato Sagu.webp" alt="Food 1" />
+  <h3>Poori & Potato Sagu</h3>
+  <!-- use button or anchor with href="javascript:void(0)" to avoid immediate navigation -->
+  <a href="javascript:void(0)" class="btn small" onclick="addToCart('Food Item 1', 50, 'images/food1.png')">Add</a>
+</div>
+
+            <!-- Example card -->
+<div class="card">
+  <img src="C:\Users\keerthana\Desktop\canteen_management\Chapathi & Kurma.jpg"alt="Food 1" />
+  <h3>Chapathi & Kurma</h3>
+  <!-- use button or anchor with href="javascript:void(0)" to avoid immediate navigation -->
+  <a href="javascript:void(0)" class="btn small" onclick="addToCart('Food Item 1', 50, 'images/food1.png')">Add</a>
+</div>
+
+            <!-- Example card -->
+<div class="card">
+  <img src="C:\Users\keerthana\Desktop\canteen_management\Paneer Butter Masala.jpg" alt="Food 1" />
+  <h3>Paneer Butter Masala</h3>
+  <!-- use button or anchor with href="javascript:void(0)" to avoid immediate navigation -->
+  <a href="javascript:void(0)" class="btn small" onclick="addToCart('Food Item 1', 50, 'images/food1.png')">Add</a>
+</div>
+
+
+            <div class="card">
+                <img src="C:\Users\keerthana\Desktop\canteen_management\Veg Biryani.jpg" alt="Food 3" />
+                <h3>Veg Biryani</h3>
+                <a href="pages/cart.html" class="btn small">Add</a>
+            </div>
+
+            <div class="card">
+                <img src="C:\Users\keerthana\Desktop\canteen_management\Gobi Manchurian.jpg" alt="Food 4" />
+                <h3>Gobi Manchurian</h3>
+                <a href="pages/cart.html" class="btn small">Add</a>
+            </div>
+
+            <div class="card">
+                <img src="C:\Users\keerthana\Desktop\canteen_management\Sweet Corn Chat.jpg" alt="Food 5" />
+                <h3>SweetCornChat</h3>
+                <a href="pages/cart.html" class="btn small">Add</a>
+            </div>
+
+            <div class="card">
+                <img src="C:\Users\keerthana\Desktop\canteen_management\Masala Tea & Biscuit.jpg" alt="Food 6" />
+                <h3>Masala Tea & Biscuit6</h3>
+                <a href="pages/cart.html" class="btn small">Add</a>
+            </div>
+
+            <div class="card">
+                <img src="C:\Users\keerthana\Desktop\canteen_management\French Fries.jpg" alt="Food 7" />
+                <h3>French Fries</h3>
+                <a href="pages/cart.html" class="btn small">Add</a>
+            </div>
+
+            <div class="card">
+                <img src="C:\Users\keerthana\Desktop\canteen_management\Samosa.jpg" alt="Food 8" />
+                <h3>Samosa</h3>
+                <a href="pages/cart.html" class="btn small">Add</a>
+            </div>
+
+            <div class="card">
+                <img src="C:\Users\keerthana\Desktop\canteen_management\puff.jpeg" alt="Food 9" />
+                <h3>puff</h3>
+                <a href="pages/cart.html" class="btn small">Add</a>
+            </div>
+
+            <div class="card">
+                <img src="C:\Users\keerthana\Desktop\canteen_management\fruitshake.avif" alt="Food 10" />
+                <h3>fruit shakes</h3>
+                <a href="pages/cart.html" class="btn small">Add</a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- PAYMENT QR CODE -->
+    <section class="payment-section">
+        <h3>Pay with UPI</h3>
+        <p>Scan the QR Code to make payment</p>
+
+        <!-- Replace this image with your QR -->
+        <img src="C:\Users\keerthana\Desktop\canteen_management\qr.svg" alt="QR Code">
+
+        <p><strong>UPI ID:</strong> canteen@upi</p>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Canteen Management System | All Rights Reserved</p>
+    </footer>
+
+    <!-- JAVASCRIPT: LIVE DATE & TIME -->
+    <script>
+        function updateLiveTime() {
+            const now = new Date();
+
+            const date = now.toLocaleDateString("en-IN", {
+                day: "2-digit",
+                month: "long",
+                year: "numeric",
+            });
+
+            const time = now.toLocaleTimeString("en-IN");
+
+            document.getElementById("liveDateTime").innerHTML =
+                `${date} • ${time}`;
+        }
+
+        setInterval(updateLiveTime, 1000);
+        updateLiveTime();
+    </script>
+
+    <script src="js/script.js"></script>
+
+</body>
+</html>

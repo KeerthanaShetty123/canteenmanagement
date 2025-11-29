@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup - Canteen Management System</title>
+
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+        .signup-box {
+            max-width: 400px;
+            margin: auto;
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .signup-box input {
+            width: 100%;
+            padding: 12px;
+            margin: 8px 0;
+            border-radius: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .signup-box a {
+            color: #ff7a00;
+            text-decoration: none;
+            font-weight: 600;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <img src="../images/logo.png" class="logo">
+        <nav class="navbar">
+            <a href="../index.html">Home</a>
+            <a href="cart.html">Cart</a>
+            <a href="login.html">Login</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </header>
+
+    <!-- SIGNUP FORM -->
+    <section class="menu">
+        <h2 class="section-title">Create an Account</h2>
+
+        <div class="signup-box">
+            <form>
+
+                <input type="text" placeholder="Full Name" required>
+                <input type="email" placeholder="Email Address" required>
+                <input type="number" placeholder="Phone Number" required>
+                <input type="password" placeholder="Create Password" required>
+                <input type="password" placeholder="Confirm Password" required>
+
+                <button class="btn" style="width:100%;">Sign Up</button>
+
+                <br><br>
+                <p style="text-align:center;">
+                    Already have an account?
+                    <a href="login.html">Login</a>
+                </p>
+
+            </form>
+        </div>
+
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Canteen Management System | All Rights Reserved</p>
+    </footer>
+
+</body>
+
+</html>

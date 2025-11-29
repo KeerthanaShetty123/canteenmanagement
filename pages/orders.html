@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Orders - Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .container { padding: 30px; }
+        h2 { color: #ff7a00; text-align: center; margin-bottom: 20px; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: center; }
+        th { background-color: #ff7a00; color: white; }
+        button { padding: 6px 12px; cursor: pointer; border: none; background-color: #ff7a00; color: white; border-radius: 4px; }
+        button:hover { background-color: #e06a00; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <img src="C:\Users\keerthana\Desktop\canteen_management\logo.png" class="logo">
+    <nav class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="admin-panel.html">Admin Panel</a>
+    </nav>
+</header>
+
+<section class="container">
+    <h2>All Customer Orders</h2>
+
+    <table id="orders-table">
+        <thead>
+            <tr>
+                <th>Order ID</th>
+                <th>Customer</th>
+                <th>Items</th>
+                <th>Total Items</th>
+                <th>Order Time</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Orders will be dynamically loaded here -->
+        </tbody>
+    </table>
+</section>
+
+<script>
+// Sample orders (replace with backend fetch)
+let orders = [
+    {id:1, customer:"Pari", items:[{name:"Burger", qty:2},{name:"Coke", qty:1}], time:"2025-11-26 10:30"},
+    {id:2, customer:"Rahul", items:[{name:"Pizza", qty:1},{name:"French Fries", qty:2}], time:"2025-11-26 11:00"},
+];
+
+const ordersTable = document.getElementById('orders-table').querySelector('tbody');
+
+function renderOrders(){
+    ordersTable.innerHTML = '';
+    orders.forEach(order=>{
+        const tr = document.createElement('tr');
+        const itemsStr = order.items.map(i=>`${i.name} x${i.qty}`).join(", ");
+        const totalQty = order.items.reduce((sum,i)=>sum+i.qty,0);
+        tr.innerHTML = `
+            <td>${order.id}</td>
+            <td>${order.customer}</td>
+            <td>${itemsStr}</td>
+            <td>${totalQty}</td>
+            <td>${order.time}</td>
+            <td><button onclick="markCompleted(${order.id})">Mark Completed</button></td>
+        `;
+        ordersTable.appendChild(tr);
+    });
+}
+
+function markCompleted(id){
+    if(confirm('Mark this order as completed?')){
+        orders = orders.filter(o=>o.id!==id);
+        renderOrders();
+        // TODO: Send DELETE or UPDATE request to backend
+    }
+}
+
+// Initial render
+renderOrders();
+</script>
+
+</body>
+</html>

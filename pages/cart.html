@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Your Cart</title>
+
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="header">
+        <img src="../images/logo.png" class="logo" />
+        <nav class="navbar">
+            <a href="../index.html">Home</a>
+            <a href="cart.html" class="active">Cart</a>
+            <a href="login.html">Login</a>
+            <a href="admin.html">Admin</a>
+        </nav>
+    </header>
+
+    <!-- CART SECTION -->
+    <section class="menu">
+        <h2 class="section-title">Your Cart</h2>
+
+        <!-- Dynamic Cart Items Load Here -->
+        <div class="grid" id="cartContainer">
+            <!-- JS will insert items here -->
+        </div>
+
+        <br><br>
+
+        <center>
+            <a href="checkout.html" class="btn">Proceed to Checkout</a>
+        </center>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <p>© 2025 Canteen Management System | All Rights Reserved</p>
+    </footer>
+    <div class="grid" id="cartContainer"></div>
+
+<!-- at bottom -->
+<script src="../js/script.js"></script>
+<script> loadCartItems(); </script>
+
+
+    <!-- Load Cart Items -->
+    <script src="../js/script.js"></script>
+    <script>
+        loadCartItems();
+    </script>
+
+</body>
+
+</html>

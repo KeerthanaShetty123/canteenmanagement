@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics - Admin</title>
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        .container { padding: 30px; }
+        h2 { color: #ff7a00; text-align: center; margin-bottom: 20px; }
+        .chart-container { width: 90%; margin: 30px auto; }
+    </style>
+</head>
+<body>
+
+<header class="header">
+    <img src="../images/logo.png" class="logo">
+    <nav class="navbar">
+        <a href="../index.html">Home</a>
+        <a href="admin-panel.html">Admin Panel</a>
+    </nav>
+</header>
+
+<section class="container">
+    <h2>Sales Analytics & Food Demand</h2>
+
+    <div class="chart-container">
+        <canvas id="salesChart"></canvas>
+    </div>
+
+    <div class="chart-container">
+        <canvas id="demandChart"></canvas>
+    </div>
+</section>
+
+<script>
+// Sample data (replace with backend fetch)
+const salesData = {
+    labels: ["Burger","Pizza","Sandwich","Pasta","Fries","Coke","Ice Cream","Paneer Tikka","Momos","Noodles"],
+    datasets: [{
+        label: 'Sold Quantity',
+        data: [50, 40, 35, 25, 60, 30, 20, 15, 25, 30],
+        backgroundColor: 'rgba(255,122,0,0.6)'
+    }]
+};
+
+const predictedDemand = {
+    labels: ["Burger","Pizza","Sandwich","Pasta","Fries","Coke","Ice Cream","Paneer Tikka","Momos","Noodles"],
+    datasets: [{
+        label: 'Predicted Quantity',
+        data: [55, 45, 40, 28, 65, 32, 22, 18, 28, 35],
+        backgroundColor: 'rgba(54,162,235,0.6)'
+    }]
+};
+
+// Sales Chart
+const ctx1 = document.getElementById('salesChart').getContext('2d');
+new Chart(ctx1, {
+    type: 'bar',
+    data: salesData,
+    options: {
+        responsive: true,
+        plugins: {
+            title: { display: true, text: 'Items Sold Today' }
+        }
+    }
+});
+
+// Predicted Demand Chart
+const ctx2 = document.getElementById('demandChart').getContext('2d');
+new Chart(ctx2, {
+    type: 'bar',
+    data: predictedDemand,
+    options: {
+        responsive: true,
+        plugins: {
+            title: { display: true, text: 'Predicted Food Demand (Next Slot)' }
+        }
+    }
+});
+</script>
+
+</body>
+</html>
